@@ -8,12 +8,11 @@
 import SwiftUI
 
 struct AppView: View {
-
-    @AppStorage("showTabBarView") private var showTabBar: Bool = false
+    @State var appState = AppState()
 
     var body: some View {
         AppViewBuilder(
-            showTabBar: showTabBar,
+            showTabBar: appState.showTabBar,
             tabBarView: {
                 TabBarView()
             },
@@ -21,9 +20,7 @@ struct AppView: View {
                 WelcomeView()
             }
         )
-//        .onTapGesture {
-//            showTabBar.toggle()
-//        }
+        .environment(appState)
     }
 }
 
