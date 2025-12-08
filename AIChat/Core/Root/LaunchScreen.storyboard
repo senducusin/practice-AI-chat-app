@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppIconInternal" translatesAutoresizingMaskIntoConstraints="NO" id="8ud-wy-Qbc">
+                                <rect key="frame" x="24" y="276" width="345" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="q0Y-0b-R22"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AI Chat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PU1-Qk-1Ms">
+                                <rect key="frame" x="142.66666666666666" y="576" width="108" height="40.666666666666629"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <color key="textColor" red="0.16862745098039217" green="0.36078431372549019" blue="0.7803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
+                        <color key="backgroundColor" name="AccentColor"/>
+                        <constraints>
+                            <constraint firstItem="8ud-wy-Qbc" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="7Em-EW-sM7"/>
+                            <constraint firstItem="8ud-wy-Qbc" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="9Qj-57-w6q"/>
+                            <constraint firstItem="8ud-wy-Qbc" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="24" id="dbp-1i-Ut6"/>
+                            <constraint firstItem="PU1-Qk-1Ms" firstAttribute="top" secondItem="8ud-wy-Qbc" secondAttribute="bottom" id="g70-Mc-cky"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" secondItem="8ud-wy-Qbc" secondAttribute="trailing" constant="24" id="jWJ-Rc-s4X"/>
+                            <constraint firstItem="PU1-Qk-1Ms" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="rVq-WW-9nm"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52.671755725190835" y="374.64788732394368"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="AppIconInternal" width="1024" height="1024"/>
+        <namedColor name="AccentColor">
+            <color red="0.39215686274509803" green="0.70196078431372544" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
