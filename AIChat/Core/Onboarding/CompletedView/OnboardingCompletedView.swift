@@ -11,23 +11,57 @@ struct OnboardingCompletedView: View {
 
     @Environment(AppState.self) private var root
 
-    var body: some View {
-        VStack {
-            Text("Onboarding Completed")
-                .frame(maxHeight: .infinity)
+    @State private var isCompletingProfileSetup: Bool = false
 
-            Button {
-                onFinishButtonPressed()
-            } label: {
-                Text("Finish")
-                    .callToActionButton()
-            }
+    var selectedColor: Color = .blue
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text("Setup Complete!")
+                .font(.largeTitle)
+                .fontWeight(.semibold)
+                .foregroundStyle(selectedColor)
+
+            Text("We've set up your profile and you're ready to start chatting.")
+                .font(.title)
+                .fontWeight(.medium)
+                .foregroundStyle(.secondary)
         }
-        .padding(16)
+        .frame(maxHeight: .infinity)
+        .safeAreaInset(edge: .bottom, content: {
+            ctaSection
+        })
+        .padding(24)
+        .toolbar(.hidden, for: .navigationBar)
+    }
+
+    private var ctaSection: some View {
+        Button {
+            onFinishButtonPressed()
+        } label: {
+            ZStack {
+                if isCompletingProfileSetup {
+                    ProgressView()
+                        .tint(.white)
+                } else {
+                    Text("Finish")
+                }
+            }
+            .callToActionButton()
+        }
+        .disabled(isCompletingProfileSetup)
     }
 
     func onFinishButtonPressed() {
-        root.updateViewState(showTabBar: true)
+        isCompletingProfileSetup = true
+
+        Task {
+//            try await saveUserProfile(color: selectedColor)
+
+            try await Task.sleep(for: .seconds(3))
+            isCompletingProfileSetup = false
+            root.updateViewState(showTabBar: true)
+        }
     }
 }
 

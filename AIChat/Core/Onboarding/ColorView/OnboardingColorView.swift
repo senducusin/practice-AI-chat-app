@@ -25,8 +25,8 @@ struct OnboardingColorView: View {
                        spacing: 16,
                        content: {
             ZStack {
-                if selectedColor != nil {
-                    ctaSection
+                if let selectedColor {
+                    ctaSection(selectedColor: selectedColor)
                         .transition(AnyTransition.move(edge: .bottom))
                 }
             }
@@ -34,6 +34,7 @@ struct OnboardingColorView: View {
             .background(Color(uiColor: .systemBackground))
         })
         .animation(.bouncy, value: selectedColor)
+        .toolbar(.hidden, for: .navigationBar)
     }
 
     private var colorGridSection: some View {
@@ -63,9 +64,9 @@ struct OnboardingColorView: View {
             })
     }
 
-    private var ctaSection: some View {
+    private func ctaSection(selectedColor: Color) -> some View {
         NavigationLink {
-            OnboardingCompletedView()
+            OnboardingCompletedView(selectedColor: selectedColor)
         } label: {
             Text("Continue")
                 .callToActionButton()
