@@ -77,7 +77,7 @@ extension View {
             .frame(maxWidth: .infinity)
             .tappableBackground()
             .customButton() {
-
+                //
             }
             .padding()
 
@@ -86,7 +86,7 @@ extension View {
             .frame(maxWidth: .infinity)
             .tappableBackground()
             .customButton(.press) {
-
+                //
             }
             .padding()
 
@@ -95,7 +95,7 @@ extension View {
             .frame(maxWidth: .infinity)
             .tappableBackground()
             .customButton(.highlight) {
-
+                //
             }
             .padding()
 
