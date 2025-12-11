@@ -10,12 +10,14 @@ import SwiftUI
 struct ExploreView: View {
     @State private var featuredAvatars: [AvatarModel] = AvatarModel.mocks
     @State private var categories: [CharacterOption] = CharacterOption.allCases
+    @State private var popularAvatars: [AvatarModel] = AvatarModel.mocks
 
     var body: some View {
         NavigationStack {
             List {
                 featuredSection
                 categorySection
+                popularSection
             }
             .navigationTitle("Explore")
         }
@@ -30,11 +32,14 @@ struct ExploreView: View {
                         subtitle: avatar.characterDescription,
                         imageUrl: avatar.profileImageName
                     )
+                    .customButton {
+                        // Add action
+                    }
                 }
             }
             .removeListRowFormatting()
         } header: {
-            Text("Featured Avatars")
+            Text("Featured")
         }
     }
 
@@ -48,6 +53,9 @@ struct ExploreView: View {
                                 title: category.rawValue.capitalized,
                                 imageName: Constants.URL.randomImageUrl
                             )
+                            .customButton {
+                                // Add action
+                            }
                         }
                     }
                 }
@@ -58,7 +66,25 @@ struct ExploreView: View {
             }
             .removeListRowFormatting()
         } header: {
-            Text("Categories Avatars")
+            Text("Categories")
+        }
+    }
+
+    private var popularSection: some View {
+        Section {
+            ForEach(popularAvatars, id: \.self) { avatar in
+                CustomListCellView(
+                    imageName: avatar.profileImageName,
+                    title: avatar.name,
+                    subtitle: avatar.characterDescription
+                )
+                .customButton(.highlight) {
+                    // add action
+                }
+                .removeListRowFormatting()
+            }
+        } header: {
+            Text("Popular")
         }
     }
 }
