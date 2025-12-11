@@ -31,7 +31,7 @@ enum CharacterLocation: String {
     static var `default`: Self { .park }
 }
 
-struct AvatarModel {
+struct AvatarModel: Hashable {
     let avatarId: String
     let name: String?
     let characterOption: CharacterOption?
