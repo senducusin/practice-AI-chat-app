@@ -38,4 +38,23 @@ extension View {
                 ], startPoint: .top, endPoint: .bottom)
             )
     }
+
+    func rowFormatting() -> some View {
+        self
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.vertical, 12)
+            .padding(.horizontal, 16)
+            .background(Color(uiColor: .systemBackground))
+    }
+
+    func badgeButton() -> some View {
+        self
+            .font(.caption)
+            .bold()
+            .foregroundStyle(Color.white)
+            .padding(.horizontal, 8)
+            .padding(.vertical, 6)
+            .background(Color.blue)
+            .cornerRadius(6)
+    }
 }

@@ -76,7 +76,7 @@ extension View {
             .padding()
             .frame(maxWidth: .infinity)
             .tappableBackground()
-            .customButton() {
+            .customButton {
                 //
             }
             .padding()
