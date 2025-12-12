@@ -67,11 +67,11 @@ extension AvatarModel {
         AvatarDescriptionBuilder(avatar: self).characterDescription
     }
 
-    static var mock: AvatarModel {
+    static var mock: Self {
         mocks[0]
     }
 
-    static var mocks: [AvatarModel] {
+    static var mocks: [Self] {
         [
             AvatarModel(
                 avatarId: UUID().uuidString,
