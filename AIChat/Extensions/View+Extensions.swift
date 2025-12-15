@@ -57,4 +57,24 @@ extension View {
             .background(Color.blue)
             .cornerRadius(6)
     }
+
+    @ViewBuilder
+    func showCustomAlert(type: AlertType = .alert, alert: Binding<AnyAppAlert?>) -> some View {
+        switch type {
+        case .alert:
+            self
+                .alert(alert.wrappedValue?.title ?? "", isPresented: Binding(ifNotNil: alert)) {
+                    alert.wrappedValue?.buttons()
+                } message: {
+                    Text(alert.wrappedValue?.subtitle ?? "")
+                }
+        case .confirmationDialog:
+            self
+                .confirmationDialog(alert.wrappedValue?.title ?? "", isPresented: Binding(ifNotNil: alert)) {
+                    alert.wrappedValue?.buttons()
+                } message: {
+                    Text(alert.wrappedValue?.subtitle ?? "")
+                }
+        }
+    }
 }
