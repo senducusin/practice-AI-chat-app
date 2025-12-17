@@ -11,6 +11,10 @@ enum CharacterOption: String, CaseIterable, Hashable {
          dog, cat
 
     static var `default`: Self { .man }
+
+    var displayName: String {
+        rawValue.capitalized
+    }
 }
 
 enum CharacterAction: String, CaseIterable, Hashable {

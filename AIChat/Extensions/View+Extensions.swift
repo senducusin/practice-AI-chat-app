@@ -77,4 +77,22 @@ extension View {
                 }
         }
     }
+
+    @ViewBuilder
+    func ifSatisfiesCondition(_ condition: Bool, transform: (Self) -> some View) -> some View {
+        if condition {
+            transform(self)
+        } else {
+            self
+        }
+    }
+
+    func showModal(showModal: Binding<Bool>, @ViewBuilder content: () -> some View) -> some View {
+        self
+            .overlay(
+                ModalSupportView(showModal: showModal) {
+                    content()
+                }
+            )
+    }
 }

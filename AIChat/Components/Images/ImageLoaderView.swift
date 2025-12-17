@@ -11,6 +11,7 @@ import SDWebImageSwiftUI
 struct ImageLoaderView: View {
     var urlString: String = Constants.URL.randomImageUrl
     var resizingMode: ContentMode = .fill
+    var forceTransitionAnimation: Bool = false
 
     var body: some View {
         Rectangle()
@@ -23,6 +24,9 @@ struct ImageLoaderView: View {
                     .allowsHitTesting(false)
             )
             .clipped()
+            .ifSatisfiesCondition(forceTransitionAnimation) {
+                $0.drawingGroup()
+            }
     }
 }
 
