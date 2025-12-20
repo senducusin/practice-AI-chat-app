@@ -95,4 +95,17 @@ extension View {
                 }
             )
     }
+
+    @ViewBuilder
+    func navigationDestinationForCoreModule(path: Binding<[NavigationPathOption]>) -> some View {
+        self
+            .navigationDestination(for: NavigationPathOption.self) { pathModel in
+                switch pathModel {
+                case .chat(let avatarId):
+                    ChatView(avatarId: avatarId)
+                case .category(let category, let imageName):
+                    CategoryListView(path: path, category: category, imageName: imageName)
+                }
+        }
+    }
 }

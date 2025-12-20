@@ -14,13 +14,16 @@ struct ProfileView: View {
     @State private var myAvatars: [AvatarModel] = []
     @State private var isLoading: Bool = false
 
+    @State private var path: [NavigationPathOption] = []
+
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $path) {
             List {
                 myInfoSection
                 myAvatarsSection
             }
             .navigationTitle("Profile")
+            .navigationDestinationForCoreModule(path: $path)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     settingsButton
@@ -82,7 +85,7 @@ struct ProfileView: View {
                         subtitle: nil
                     )
                     .customButton(.highlight) {
-
+                        onAvatarPressed(avatar: avatar)
                     }
                     .removeListRowFormatting()
                 }
@@ -124,6 +127,11 @@ struct ProfileView: View {
 
         isLoading = false
         myAvatars = AvatarModel.mocks
+    }
+
+    private func onAvatarPressed(avatar: AvatarModel) {
+        let model = NavigationPathOption.chat(avatarId: avatar.avatarId)
+        path.append(model)
     }
 }
 
